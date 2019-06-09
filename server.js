@@ -28,3 +28,18 @@ main();
 ////////////////////////////////////////////////////////////////////////////////
 
 // TODO(you): Add at least 1 GET route and 1 POST route.
+
+async function onMain(req, res) {
+  res.send("main page");
+}
+
+app.get('/main', onMain);
+
+
+async function onPost(req, res) {
+  const messageBody = req.body;
+  const path = routeParams.path;
+  res.json({"Path":path});
+}
+
+app.post('/:path', jsonParser, onPost);
