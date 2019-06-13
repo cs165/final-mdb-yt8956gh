@@ -1,3 +1,146 @@
-/**
- * TODO(you): Add the CSS necessary to complete your final project.
- **/
+body{
+    background-color: #17242a;
+    margin: 0;
+}
+
+.full-page{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.flex-container-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title{
+    height: 20%;
+    font-size: 30pt;
+    font-family: 'Lobster', cursive;
+    color: #f2f1e9;
+    opacity: 0;
+
+    animation-name: float-up;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#create{
+    font-size: 12pt;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 60px;
+    padding: 15px;
+    background-color: #ff9a31;
+    box-shadow: #ff9a31 0px 0px 10px 0px;
+    border-radius: 30px;
+    border: 0;
+}
+
+#create:hover, #create:focus{
+    background-color: #ff9a31;
+    box-shadow: #ff9a31 0px 0px 30px 0px;
+}
+
+
+.card{
+    width: 60%;
+    height: 65%;
+    background-color: #f2f1e9;
+    border: gray 2px;
+    border-radius: 5px;
+    box-shadow: #74736d 2px 3px 10px 0px;
+
+    animation-name: float-up;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+}
+
+#bottomBarContainer{
+    width:100%;
+    height: 8%;
+    background-color: #ec922e;
+    margin-top: auto;
+}
+
+#bottomBar{
+    width:60%;
+}
+
+.card-flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.divideLine{
+    width: 100%;
+    height: 2px;
+    background-color: #aeaaac;
+
+}
+
+#date{
+    margin: 15px;
+    font-size: 18pt;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #0b123b;
+}
+
+#homeButton{
+    font-size: 1.5rem;
+}
+
+#back{
+    background-image: url("../res/back.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 48px;
+    width: 48px;
+}
+
+#forward{
+    background-image: url("../res/forward.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 48px;
+    width: 48px;
+}
+
+
+@keyframes float-up {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0,10px,0);
+        -ms-transform: translate3d(0,10px,0);
+        transform: translate3d(0,10px,0);
+    }
+    75% {
+        opacity: 0;
+        -webkit-transform: translate3d(0,10px,0);
+        -ms-transform: translate3d(0,10px,0);
+        transform: translate3d(0,10px,0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+}

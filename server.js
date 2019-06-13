@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const path = require('path');
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
@@ -21,22 +22,74 @@ async function main() {
   const port = process.env.PORT || 3000;
   await app.listen(port);
   console.log(`Server listening on port ${port}!`);
-};
+}
 
 main();
 
-////////////////////////////////////////////////////////////////////////////////
 
-// TODO(you): Add at least 1 GET route and 1 POST route.
+async function onId(req, res) {
+  const routeParams = req.params;
+  const key = routeParams.key;
 
-async function onMain(req, res) {
-  res.send("main page");
+  res.sendFile(path.resolve(__dirname, 'public/id', 'dairy.html'));
 }
 
-app.get('/main', onMain);
+app.get('/id/:IDkey', onId);
+
+
+// async function getId(req, res) {
+//   const routeParams = req.params;
+//   const date = routeParams.date;
+//   const month = routeParams.month;
+//   const year = routeParams.year;
+//
+//   const collection = db.collection('date');
+//   const query = {date:`${month}/${date}/${year}`};
+//   console.log("query:" + query);
+//
+//   const response = await collection.findOne(query);
+//
+//   if(response!=null) {
+//     console.log(response);
+//     console.log("ID:"+response._id);
+//     res.json({key:response._id,error:false});
+//   }
+//   else{
+//     console.log("There is not any document matching the query !");
+//     let error = {error:true};
+//     res.json(error);
+//   }
+// }
+
+
+
+async function getId(req, res) {
+  const routeParams = req.params;
+  const diaryID = parseInt(routeParams.diaryID, 10);
+
+  const collection = db.collection('diary');
+  const query = {number:diaryID};
+  console.log(query);
+
+  const response = await collection.findOne(query);
+
+  if(response!=null) {
+    console.log(response);
+    console.log("ID:"+response._id);
+    res.json({key:response._id,error:false});
+  }
+  else{
+    console.log("There is not any document matching the query !");
+    let error = {error:true};
+    res.json(error);
+  }
+}
+
+app.get('/getid/:diaryID', getId);
 
 
 async function onPost(req, res) {
+  const routeParams = req.params;
   const messageBody = req.body;
   const path = routeParams.path;
   res.json({"Path":path});
