@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,6 +6,7 @@
     <title>Nian's Final Project</title>
     <link rel="stylesheet" href="../css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway|Roboto+Condensed&display=swap" rel="stylesheet">
+    <script src="../js/getData.js" defer></script>
     <script src="../js/app.js" defer></script>
 </head>
 
@@ -15,15 +16,12 @@
         <div>Journal</div>
     </div>
     <div class="card-flex-container card">
-        <div id="date">June 12</div>
-        <div class="divideLine"></div>
-    </div>
-    <div class="flex-container" id="bottomBarContainer">
-        <div class="flex-container" id="bottomBar">
-            <div id="back"></div>
-            <div id="homeButton">Home</div>
-            <div id="forward"></div>
+        <div class="flex-container" id="controlBar">
+            <div id="back" class="myButton"></div>
+            <div id="date">June 12</div>
+            <div id="forward" class="myButton"></div>
         </div>
+        <div class="divideLine"></div>
     </div>
 </div>
 </body>

@@ -26,7 +26,7 @@ body{
 
 .title{
     height: 20%;
-    font-size: 30pt;
+    font-size: 4rem;
     font-family: 'Lobster', cursive;
     color: #f2f1e9;
     opacity: 0;
@@ -68,15 +68,16 @@ body{
     animation-timing-function: ease-in-out;
 }
 
-#bottomBarContainer{
-    width:100%;
-    height: 8%;
-    background-color: #ec922e;
-    margin-top: auto;
+#controlBar{
+    width:60%;
+    height: 15%;
 }
 
-#bottomBar{
-    width:60%;
+#date{
+    font-size: 2rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #0b123b;
 }
 
 .card-flex-container{
@@ -93,20 +94,19 @@ body{
 
 }
 
-#date{
-    margin: 15px;
-    font-size: 18pt;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    color: #0b123b;
-}
-
 #homeButton{
     font-size: 1.5rem;
 }
 
 #back{
     background-image: url("../res/back.png");
+}
+
+#forward{
+    background-image: url("../res/forward.png");
+}
+
+.myButton{
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -114,33 +114,22 @@ body{
     width: 48px;
 }
 
-#forward{
-    background-image: url("../res/forward.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    height: 48px;
-    width: 48px;
+.myButton:hover{
+    transform: scale(1.2);
 }
 
 
 @keyframes float-up {
     0% {
         opacity: 0;
-        -webkit-transform: translate3d(0,10px,0);
-        -ms-transform: translate3d(0,10px,0);
         transform: translate3d(0,10px,0);
     }
     75% {
         opacity: 0;
-        -webkit-transform: translate3d(0,10px,0);
-        -ms-transform: translate3d(0,10px,0);
         transform: translate3d(0,10px,0);
     }
     100% {
         opacity: 1;
-        -webkit-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
     }
 }

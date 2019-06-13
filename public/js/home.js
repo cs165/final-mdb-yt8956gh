@@ -15,12 +15,10 @@ class Home{
             response => {let json=response.json();console.log(json); return json;},
             response => {console.log(response.status);}
             ).then(
-                json =>{window.location.href = window.location.href+'id/'+json.key;}
+                json => {window.location.href = window.location.href+'id/'+json.key;}
             );
 
         //const key = 'fdhasfuhsdaf';
         //window.location.href = window.location.href+'id/'+key;
     }
-
-
 }

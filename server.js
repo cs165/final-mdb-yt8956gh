@@ -80,8 +80,12 @@ async function getId(req, res) {
   }
   else{
     console.log("There is not any document matching the query !");
-    let error = {error:true};
-    res.json(error);
+    console.log("Server will create a new one!");
+
+    await collection.insertOne(query, function(err,result){
+      console.log(`ID of New Document is ${result.insertedId}`);
+      res.json({key:result.insertedId,error:false});
+    });
   }
 }
 
