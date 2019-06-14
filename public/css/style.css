@@ -42,7 +42,7 @@ body{
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
     height: 60px;
-    padding: 15px;
+    padding:  0 30px;
     background-color: #ff9a31;
     box-shadow: #ff9a31 0px 0px 10px 0px;
     border-radius: 30px;
@@ -50,8 +50,10 @@ body{
 }
 
 #create:hover, #create:focus{
-    background-color: #ff9a31;
-    box-shadow: #ff9a31 0px 0px 30px 0px;
+    animation-name: color_change;
+    animation-duration: 300ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 
 
@@ -132,4 +134,60 @@ body{
         opacity: 1;
         transform: translate3d(0,0,0);
     }
+}
+
+@keyframes color_change {
+    0%{
+
+    }
+    100%{
+        box-shadow: #ff9a31 0px 0px 30px 0px;
+    }
+}
+
+@keyframes choose_journal {
+    0%{
+
+    }
+    100%{
+        box-shadow: #f2f1e9 0px 0px 30px 0px;
+    }
+}
+
+.journal{
+    height: 260px;
+    width: 200px;
+    border-radius: 5px;
+    margin: 10% 15px;
+    background-color: #6bbfd1;
+}
+
+.journal:hover{
+    animation-name: choose_journal;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.journal-flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.journal-binding-side{
+    background-color: #517b8f;
+    height: 100%;
+    width: 10%;
+}
+
+.journal-title{
+    margin: 30% auto auto;
+    padding: 5px;
+    border-radius: 5px;
+    height: max-content;
+    width: min-content;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
