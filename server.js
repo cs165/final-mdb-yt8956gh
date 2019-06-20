@@ -79,7 +79,7 @@ async function getId(req, res) {
     res.json({key:response._id,error:false});
   }
   else {
-    console.log("There is not any document matching the query !");
+    console.log("There is not any journal document matching the query !");
     console.log("Server will create a new one!");
 
     await collection.insertOne(query, function(err,result){
@@ -90,6 +90,39 @@ async function getId(req, res) {
 }
 
 app.get('/getid/:diaryID', getId);
+
+async function getEntry(req, res) {
+  const routeParams = req.params;
+
+  const bookidQueue = routeParams.bookid;
+  const dateQueue = routeParams.date;
+
+
+  const collection = db.collection('entry');
+  const query = {bookid:bookidQueue, date:dateQueue};
+  console.log(query);
+
+  const response = await collection.findOne(query);
+
+  if(response!=null) {
+    console.log(response);
+    console.log("ID:"+response._id);
+    res.json({text:response.text,error:false});
+  }
+  else {
+    console.log("There is not any entry document matching the query !");
+    console.log("Server will create a new one!");
+
+    query.text="";
+
+    await collection.insertOne(query, function(err,result){
+      console.log(`ID of New Document is ${result.insertedId}`);
+      res.json({text:"",error:false});
+    });
+  }
+}
+
+app.get('/getEntry/:bookid/:date', getEntry);
 
 
 async function onPost(req, res) {

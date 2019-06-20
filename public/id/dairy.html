@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Nian's Final Project</title>
     <link rel="stylesheet" href="../css/style.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway|Roboto+Condensed&display=swap" rel="stylesheet">
-    <script src="../js/getData.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Lobster|PT+Sans|Raleway|Roboto+Condensed&display=swap" rel="stylesheet">
+    <script src="../js/editEntry.js" defer></script>
+    <script src="../js/showEntry.js" defer></script>
     <script src="../js/app.js" defer></script>
 </head>
 
 <body>
-<div class="flex-container-column full-page">
+<div id="entry-show" class="flex-container-column full-page">
     <div class="flex-container-column title">
         <div>Journal</div>
     </div>
@@ -22,6 +23,14 @@
             <div id="forward" class="myButton"></div>
         </div>
         <div class="divideLine"></div>
+        <div id="entry-text"></div>
+    </div>
+</div>
+<div id="entry-edit" class="flex-container-column full-page inactive">
+    <div id="edit-card" class="flex-container-column">
+        <div id="card-date">June 12</div>
+        <textarea id="edit-area"></textarea>
+        <div id="checked" class="myButton"></div>
     </div>
 </div>
 </body>
