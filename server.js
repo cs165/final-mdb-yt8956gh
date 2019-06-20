@@ -78,7 +78,7 @@ async function getId(req, res) {
     console.log("ID:"+response._id);
     res.json({key:response._id,error:false});
   }
-  else{
+  else {
     console.log("There is not any document matching the query !");
     console.log("Server will create a new one!");
 
@@ -99,4 +99,4 @@ async function onPost(req, res) {
   res.json({"Path":path});
 }
 
-app.post('/:path', jsonParser, onPost);
+app.post('/test/:path', jsonParser, onPost);
