@@ -8,17 +8,11 @@ class Home{
 
     createURL(){
 
-        //let todayString = this.today.toLocaleDateString('en-US');
-
-        fetch('./getid/1')
+        fetch('./getId/1')
             .then(
             response => {let json=response.json();console.log(json); return json;},
-            response => {console.log(response.status);}
-            ).then(
-                json => {window.location.href = window.location.href+'id/'+json.key;}
-            );
-
-        //const key = 'fdhasfuhsdaf';
-        //window.location.href = window.location.href+'id/'+key;
+            response => {console.log(response.status);})
+            .then(
+                json => {window.location.href = window.location.href+'id/'+json.key;});
     }
 }

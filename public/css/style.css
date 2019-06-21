@@ -132,7 +132,19 @@ body{
 }
 
 .myButton:hover{
-    transform: scale(1.2);
+    animation-name: zoomIn;
+    animation-duration: 200ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoomIn{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.2);
+    }
 }
 
 
@@ -209,29 +221,33 @@ body{
 }
 
 textarea{
-    height: 70%;
+    height: 60%;
     width: 80%;
+    margin: 5%;
     border:0;
     background-color: #f2f1e9;
+    font-family: 'Noto Sans TC', sans-serif;
     font-size: xx-large;
+    resize : none;
 }
 
 #entry-text{
-    height: 100%;
-    width:80%;
+    height: auto;
+    width:max-content;
     font-size: 2rem;
     font-family: 'Noto Sans TC', sans-serif;
+    word-break: keep-all;
 }
 
-#entry-edit{
+#entry-edit-screen{
     position: fixed;
     top: 0;
     right: 0;
 }
 
 #edit-card{
-    height: 500px;
-    width: 500px;
+    height: 700px;
+    width: 700px;
     background-color: #f2f1e9;
     border-radius: 5px;
 

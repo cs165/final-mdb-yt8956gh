@@ -89,7 +89,7 @@ async function getId(req, res) {
   }
 }
 
-app.get('/getid/:diaryID', getId);
+app.get('/getId/:diaryID', getId);
 
 async function getEntry(req, res) {
   const routeParams = req.params;
@@ -115,7 +115,7 @@ async function getEntry(req, res) {
 
     query.text="";
 
-    await collection.insertOne(query, function(err,result){
+    await collection.insertOne(query, (err,result)=>{
       console.log(`ID of New Document is ${result.insertedId}`);
       res.json({text:"",error:false});
     });
@@ -128,8 +128,19 @@ app.get('/getEntry/:bookid/:date', getEntry);
 async function onPost(req, res) {
   const routeParams = req.params;
   const messageBody = req.body;
-  const path = routeParams.path;
-  res.json({"Path":path});
+
+  console.log("POST Message Body:");
+  console.log(messageBody);
+
+  const collection = db.collection('entry');
+  const query = {bookid:messageBody.bookid, date:messageBody.date};
+
+  await collection.updateOne(query,{$set:{text:messageBody.text}},(err, res)=>{
+    if (err) throw err;
+    console.log("<1 entry updated>");
+  });
+
+  res.json({status:"successful"});
 }
 
-app.post('/test/:path', jsonParser, onPost);
+app.post('/setEntry', jsonParser, onPost);
