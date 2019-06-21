@@ -5,6 +5,7 @@ class showEntry{
         this.dateText = dateText;
 
         this.entryText = document.querySelector("#entry-text");
+        this.entryTextContainer = document.querySelector("#entry-text-container");
         this.entryEditScreen = document.querySelector("#entry-edit-screen");
         this.date = new Date();
         this.options = { month: 'long', day: 'numeric' };
@@ -18,7 +19,7 @@ class showEntry{
 
         this.getBookId();
 
-        this.editEntry = new editEntry(this.entryEditScreen, this.entryText, this.bookid,this.date2String(this.date));
+        this.editEntry = new editEntry(this.entryEditScreen, this.entryTextContainer, this.bookid,this.date2String(this.date));
         console.log(this.loadData());
 
         document.addEventListener("updateEntryShowScreen", this.loadData);

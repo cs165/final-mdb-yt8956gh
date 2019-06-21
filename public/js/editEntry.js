@@ -1,7 +1,7 @@
 class editEntry{
-    constructor(entryEditScreen, entryText, bookid, dateString){
+    constructor(entryEditScreen, entryTextContainer, bookid, dateString){
 
-        this.entryText = entryText;
+        this.entryTextContainer = entryTextContainer;
         this.dateString = dateString;
         this.bookid = bookid;
         this.entryEditScreen = entryEditScreen;
@@ -14,7 +14,7 @@ class editEntry{
         this.show = this.show.bind(this);
         this.checked = this.checked.bind(this);
 
-        this.entryText.addEventListener("click", this.show);
+        this.entryTextContainer.addEventListener("click", this.show);
         this.editCard.addEventListener("click",this.doNothing);
         this.entryEditScreen.addEventListener("click", this.checked);
         this.checkButton.addEventListener("click", this.checked);

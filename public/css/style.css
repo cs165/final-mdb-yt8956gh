@@ -233,7 +233,7 @@ textarea{
 
 #entry-text{
     height: 100%;
-    width:max-content;
+    width: max-content;
     font-size: 2rem;
     font-family: 'Noto Sans TC', sans-serif;
     word-break: keep-all;
@@ -262,4 +262,9 @@ textarea{
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
     color: #0b123b;
+}
+
+#entry-text-container{
+    height: 100%;
+    width: 100%;
 }
