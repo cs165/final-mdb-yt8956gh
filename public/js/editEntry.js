@@ -1,10 +1,11 @@
 class editEntry{
-    constructor(entryEditScreen, entryTextContainer, bookid, dateString){
+    constructor(entryEditScreen, entryTextContainer, updateEntryShowScreen, bookid, dateString){
 
         this.entryTextContainer = entryTextContainer;
         this.dateString = dateString;
         this.bookid = bookid;
         this.entryEditScreen = entryEditScreen;
+        this.updateEntryShowScreen = updateEntryShowScreen;
         this.entryShowScreen = document.querySelector("#entry-show-screen");
         this.editCard = document.querySelector("#edit-card");
         this.dateDiv = document.querySelector("#card-date");
@@ -30,7 +31,7 @@ class editEntry{
         this.entryEditScreen.classList.add("inactive");
     }
 
-    async checked(event){
+    async checked(){
 
         const requestJson = {bookid:this.bookid, date:this.dateString, text:this.textArea.value};
         console.log(requestJson);
@@ -46,7 +47,7 @@ class editEntry{
 
         await fetch("../setEntry", fetchOptions);
 
-        document.dispatchEvent(new Event("updateEntryShowScreen"));
+        this.updateEntryShowScreen();
 
         this.hide();
     }

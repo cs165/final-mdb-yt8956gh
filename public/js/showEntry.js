@@ -19,10 +19,8 @@ class showEntry{
 
         this.getBookId();
 
-        this.editEntry = new editEntry(this.entryEditScreen, this.entryTextContainer, this.bookid,this.date2String(this.date));
+        this.editEntry = new editEntry(this.entryEditScreen, this.entryTextContainer, this.loadData, this.bookid,this.date2String(this.date));
         console.log(this.loadData());
-
-        document.addEventListener("updateEntryShowScreen", this.loadData);
     }
 
     async loadData(){
