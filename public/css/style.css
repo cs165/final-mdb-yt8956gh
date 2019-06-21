@@ -233,7 +233,7 @@ textarea{
 
 #entry-text{
     height: 100%;
-    width: max-content;
+    width: auto;
     font-size: 2rem;
     font-family: 'Noto Sans TC', sans-serif;
     word-break: keep-all;
