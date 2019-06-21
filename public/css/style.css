@@ -232,7 +232,7 @@ textarea{
 }
 
 #entry-text{
-    height: auto;
+    height: 100%;
     width:max-content;
     font-size: 2rem;
     font-family: 'Noto Sans TC', sans-serif;
