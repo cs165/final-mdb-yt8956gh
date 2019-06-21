@@ -68,7 +68,7 @@ body{
 
 .card{
     width: 45%;
-    height: 65%;
+    height: 75%;
     background-color: #f2f1e9;
     border: gray 2px;
     border-radius: 5px;
@@ -210,7 +210,7 @@ body{
 }
 
 .journal-title{
-    margin: 30% auto auto;
+    margin: 30% auto;
     padding: 5px;
     border-radius: 5px;
     height: max-content;
@@ -227,16 +227,19 @@ textarea{
     border:0;
     background-color: #f2f1e9;
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: xx-large;
+    font-size: x-large;
     resize : none;
 }
 
 #entry-text{
-    height: 100%;
+    height: 85%;
     width: auto;
+    margin: 5% 1%;
+    padding: 0 5%;
+    overflow-y:scroll;
     font-size: 2rem;
     font-family: 'Noto Sans TC', sans-serif;
-    word-break: keep-all;
+    word-break: break-word;
 }
 
 #entry-edit-screen{
@@ -246,8 +249,8 @@ textarea{
 }
 
 #edit-card{
-    height: 700px;
-    width: 700px;
+    height: 600px;
+    width: 600px;
     background-color: #f2f1e9;
     border-radius: 5px;
 
@@ -267,4 +270,24 @@ textarea{
 #entry-text-container{
     height: 100%;
     width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #dcd5c7;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #5c8b9c;
 }
