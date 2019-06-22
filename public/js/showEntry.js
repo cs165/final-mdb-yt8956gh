@@ -7,6 +7,7 @@ class showEntry{
         this.entryText = document.querySelector("#entry-text");
         this.entryTextContainer = document.querySelector("#entry-text-container");
         this.entryEditScreen = document.querySelector("#entry-edit-screen");
+        this.back2HomeButton = document.querySelector("#back-to-home");
         this.date = new Date();
         this.options = { month: 'long', day: 'numeric' };
 
@@ -16,11 +17,18 @@ class showEntry{
 
         this.backButton.addEventListener('click',this.back);
         this.forwardButton.addEventListener('click', this.forward);
+        this.back2HomeButton.addEventListener('click',
+            ()=>{
+            let tmp = window.location.href;
+            const regExp = /\/id\/\w*/;
+            window.location.href = tmp.replace(regExp,"");
+        });
+
 
         this.getBookId();
 
         this.editEntry = new editEntry(this.entryEditScreen, this.entryTextContainer, this.loadData, this.bookid,this.date2String(this.date));
-        console.log(this.loadData());
+        this.loadData().catch(error=>{console.log(error);});
     }
 
     async loadData(){
@@ -42,18 +50,16 @@ class showEntry{
     }
 
     date2String(date){
-        const dataStr = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
-        console.log(dataStr);
-        return dataStr;
+        return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
     }
 
     forward(){
         this.date.setDate(this.date.getDate()+1);
-        this.loadData();
+        this.loadData().catch(error=>{console.log(error);});
     }
 
     back(){
         this.date.setDate(this.date.getDate()-1);
-        this.loadData();
+        this.loadData().catch(error=>{console.log(error);});
     }
 }

@@ -13,21 +13,18 @@
   <body>
     <div class="flex-container-column full-page">
       <div class="title">Choose a Journal</div>
-      <div class="flex-container">
-        <div class="journal journal-flex-container">
-          <div class="journal-binding-side"></div>
-          <div class="journal-title">Winnie the Pooh</div>
-        </div>
-        <div class="journal journal-flex-container">
-          <div class="journal-binding-side"></div>
-          <div class="journal-title">Study Plan</div>
-        </div>
-        <div class="journal journal-flex-container">
-          <div class="journal-binding-side"></div>
-          <div class="journal-title">Travel</div>
-        </div>
+      <div id="journal-container" class="flex-container">
+        <!-- Journal Book Sample -->
+        <!-- <div class="journal journal-flex-container"> -->
+        <!--    <div class="journal-binding-side"></div> -->
+        <!--    <div class="journal-title">Winnie the Pooh</div> -->
+        <!-- </div> -->
       </div>
-      <button id="create">CREATE NEW ONE</button>
+      <div id="input-container" class="flex-container">
+        <label for="journal-name"></label>
+        <input type="text" id="journal-name" placeholder="New Journal Name">
+        <button id="create">CREATE</button>
+      </div>
     </div>
   </body>
 </html>

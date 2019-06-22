@@ -26,57 +26,16 @@ async function main() {
 
 main();
 
-
-async function onId(req, res) {
-  const routeParams = req.params;
-  const key = routeParams.key;
-
-  res.sendFile(path.resolve(__dirname, 'public/id', 'dairy.html'));
-}
-
-app.get('/id/:IDkey', onId);
-
-
-// async function getId(req, res) {
-//   const routeParams = req.params;
-//   const date = routeParams.date;
-//   const month = routeParams.month;
-//   const year = routeParams.year;
-//
-//   const collection = db.collection('date');
-//   const query = {date:`${month}/${date}/${year}`};
-//   console.log("query:" + query);
-//
-//   const response = await collection.findOne(query);
-//
-//   if(response!=null) {
-//     console.log(response);
-//     console.log("ID:"+response._id);
-//     res.json({key:response._id,error:false});
-//   }
-//   else{
-//     console.log("There is not any document matching the query !");
-//     let error = {error:true};
-//     res.json(error);
-//   }
-// }
-
-
-
-async function getId(req, res) {
-  const routeParams = req.params;
-  const diaryID = parseInt(routeParams.diaryID, 10);
+async function onJournalList(req, res) {
 
   const collection = db.collection('diary');
-  const query = {number:diaryID};
-  console.log(query);
+  const response = await collection.find({}).toArray();
 
-  const response = await collection.findOne(query);
+  console.log(response);
 
-  if(response!=null) {
-    console.log(response);
-    console.log("ID:"+response._id);
-    res.json({key:response._id,error:false});
+  if(response!==null) {
+
+    res.json(response);
   }
   else {
     console.log("There is not any journal document matching the query !");
@@ -89,7 +48,45 @@ async function getId(req, res) {
   }
 }
 
-app.get('/getId/:diaryID', getId);
+app.get('/journal_list', onJournalList);
+
+async function onId(req, res) {
+  const routeParams = req.params;
+  const key = routeParams.key;
+
+  res.sendFile(path.resolve(__dirname, 'public/id', 'dairy.html'));
+}
+
+app.get('/id/:IDkey', onId);
+
+async function getId(req, res) {
+  const routeParams = req.params;
+  const diaryID = parseInt(routeParams.diaryID, 10);
+  const journalName = routeParams.journalName;
+
+
+  const collection = db.collection('diary');
+  const query = {number:diaryID};
+  console.log(query);
+
+  const response = await collection.findOne(query);
+
+  if(response!=null) {
+    console.log(response);
+    res.json({key:response._id,error:false});
+  }
+  else {
+    query.name = journalName;
+    console.log("< InsertNew Journal >");
+
+    await collection.insertOne(query, function(err,result){
+      console.log(`ID: ${result.insertedId}`);
+      res.json({key:result.insertedId,error:false});
+    });
+  }
+}
+
+app.get('/getId/:diaryID/:journalName', getId);
 
 async function getEntry(req, res) {
   const routeParams = req.params;
@@ -112,7 +109,6 @@ async function getEntry(req, res) {
   else {
     console.log("There is not any entry document matching the query !");
     console.log("Server will create a new one!");
-
     query.text="";
 
     await collection.insertOne(query, (err,result)=>{
