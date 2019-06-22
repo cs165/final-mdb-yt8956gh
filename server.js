@@ -54,7 +54,7 @@ async function onId(req, res) {
   const routeParams = req.params;
   const key = routeParams.key;
 
-  res.sendFile(path.resolve(__dirname, 'public/id', 'dairy.html'));
+  res.sendFile(path.resolve(__dirname, 'public/id', 'daily.html'));
 }
 
 app.get('/id/:IDkey', onId);

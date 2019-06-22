@@ -1,0 +1,187 @@
+body{
+    background-color: #17242a;
+    margin: 0;
+}
+
+.full-page{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.flex-container-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title{
+    height: 20%;
+    font-size: 5rem;
+    font-family: 'Lobster', cursive;
+    color: #f2f1e9;
+    opacity: 0;
+
+    animation-name: float-up;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#journal-container{
+    flex-wrap: wrap;
+    width: auto;
+    margin: 0 auto;
+}
+
+.journal{
+    height: 200px;
+    width: 180px;
+    border-radius: 5px;
+    margin: 15px 15px;
+    background-color: #6bbfd1;
+}
+
+.journal:hover{
+    animation-name: choose_journal;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    transform: scale(1.05);
+}
+
+.journal-flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.journal-binding-side{
+    background-color: #517b8f;
+    height: 100%;
+    width: 10%;
+}
+
+.journal-title{
+    margin: 30% auto;
+    height: max-content;
+    width: min-content;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1.5rem;
+}
+
+#input-container{
+    height: auto;
+    width:min-content;
+    margin: 40px;
+}
+
+input{
+    text-align: center;
+    height: 60px;
+    width: max-content;
+    font-size: x-large;
+    font-family: 'Noto Sans TC', sans-serif;
+    border-radius: 30px 0 0 30px;
+    border: 0;
+    background-color: #fbfff8;
+    box-sizing: border-box;
+}
+
+#create{
+
+    font-size: 1.2rem;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 60px;
+    width: min-content;
+    padding:  0 30px;
+    background-color: #ff9a31;
+    border-radius: 0 30px 30px 0;
+    border: 0;
+}
+
+#create:hover, #create:focus{
+    animation-name: color_change;
+    animation-duration: 300ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+
+
+@keyframes float-up {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,10px,0);
+    }
+    75% {
+        opacity: 0;
+        transform: translate3d(0,10px,0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
+
+
+
+@keyframes color_change {
+    100%{
+        box-shadow: #ff9a31 0 0 30px 0;
+    }
+}
+
+@keyframes choose_journal {
+    100%{
+        box-shadow: #000000 7px 5px 30px 0;
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #dcd5c7;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #5c8b9c;
+}
+
+@media screen and (max-width:500px){
+
+    .title{
+        margin-top: 20px;
+        font-size: 3rem;
+    }
+
+    input{
+        font-size: 1.2rem;
+    }
+
+    #create{
+        font-size: 1.2rem;
+        padding:  0 15px;
+    }
+}
