@@ -59,6 +59,26 @@ async function onId(req, res) {
 
 app.get('/id/:IDkey', onId);
 
+
+async function onInit(req, res) {
+  const routeParams = req.params;
+  const key = routeParams.key;
+
+  const diary = db.collection('diary');
+  const entry = db.collection('entry');
+
+  await diary.removeMany({});
+  await entry.removeMany({});
+
+  res.json({status:"successful"});
+}
+
+app.get('/delete', onInit);
+
+
+
+
+
 async function getId(req, res) {
   const routeParams = req.params;
   const diaryID = parseInt(routeParams.diaryID, 10);
